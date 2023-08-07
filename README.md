@@ -35,7 +35,7 @@ With alpha=.05 there are some significant differences between these two sets of 
 
 ## DTW Distance Permutation Test P-values
 
-| Literature Field                  | Modularity, Avg. Neighbors Distance | Modularity, Homophily | Avg. Neighbors Distance, Homophily |
+| Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
 |:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
 | Spliceosome                       | .001                                | .965                  | .001                               |
 | Foldamer                          | .003                                | .001                  | .001                               |
