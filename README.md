@@ -9,13 +9,13 @@ I can combine word vectors for all the text in the title and keywords for each p
 When we measure the cosine similarity between the all author vectors and the average of all author vectors we get the following histogram. This gives approximelty a left-skewed normal distribution with the mean cosine similarity near .925. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the Foldamer Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="50%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
 </div>
 
 For our analysis of these networks I will focus on the following metrics. Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average distance between neighboring word vectors. This is computed using the value described in the histogram and will help tell us if authors with similar interests are working together. Lastly I have included homophily which measures the proportion of neighboring nodes with a score within some threshold. This is a metric for network polarization where high homophily values represent a higher degree of polarization. I have chosen to use the standard deviation of scores/2 as a threshold.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/7d562964-7b32-47cd-94c9-6efe17c76035" alt="Image" width="50%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/7d562964-7b32-47cd-94c9-6efe17c76035" alt="Image" width="60%" />
 </div>
 
 
