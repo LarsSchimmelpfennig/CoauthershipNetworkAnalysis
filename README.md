@@ -6,7 +6,7 @@ To capture what topics each author focuses on I have used a deep learning Word2V
 
 I can combine word vectors for all the text in the title and keywords for each paper by an author. This gives an author vector that represents all the work an author has contributed towards within a specifc field. When we measure the cosine similarity between the author vectors and the average of all author vectors we get the following network for the field of foldamers.
 
-![foldamer_transparent_3](https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/a9de15e1-467f-4af3-b1b4-f44549a7b407)
+![foldamer_transparent_4](https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/3a5ba29c-bbb3-4564-b103-346bb7c3a9bb)
 
 This gives approximately a left-skewed normal distribution with the mean cosine similarity near .925. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the Foldamer Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
 
