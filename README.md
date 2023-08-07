@@ -14,7 +14,7 @@ This gives approximately a left-skewed normal distribution with the mean cosine 
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
 </div>
 
-For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average distance between neighboring author vectors. This is computed using the value described in the histogram and will help tell us if authors with similar interests are working together. Lastly I have included homophily which measures the proportion of neighboring nodes with a score within some threshold. This is a metric for network polarization where high homophily values represent a higher degree of polarization. I have chosen to use the standard deviation of scores/2 as a threshold.
+For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average difference between neighboring author vectors. This is computed using the value described in the histogram and will help tell us if authors with similar interests are working together. Lastly I have included homophily which measures the proportion of neighboring nodes with a score within some threshold. This is a metric for network polarization where high homophily values represent a higher degree of polarization. I have chosen to use the standard deviation of scores/2 as a threshold.
 
 <div align="center">
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/7d562964-7b32-47cd-94c9-6efe17c76035" alt="Image" width="60%" />
@@ -24,7 +24,7 @@ To measure the distance between these two curves they are first normalized so al
 
 ## Euclidean Distance Permutation Test P-values
 
-| Literature Field                  | Modularity, Avg. Neighbors Distance | Modularity, Homophily | Avg. Neighbors Distance, Homophily |
+| Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
 |:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
 | Spliceosome                       | .135                                | .969                  | .001                               |
 | Foldamer                          | .848                                | .1266                 | .001                               |
