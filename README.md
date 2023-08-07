@@ -4,9 +4,11 @@ A Co-authorship network contains authors as nodes and collaboration on the same 
 
 To capture what topics each author focuses on I have used a deep learning Word2Vec model I trained on all abstracts from 1980 to 2022 in the Web of Science CORE dataset. During training this model creates word vectors based on the context each word appears in. These word vectors can be combined to capture more complex meaning and the cosine similairty between two word vectors gives a value from -1 to 1 depending on how similar these word vectors are. 
 
-I can combine word vectors for all the text in the title and keywords for each paper by an author. This gives an author vector that represents all the work an author has contributed towards within a specifc field.
+I can combine word vectors for all the text in the title and keywords for each paper by an author. This gives an author vector that represents all the work an author has contributed towards within a specifc field. When we measure the cosine similarity between the author vectors and the average of all author vectors we get the following network for the field of foldamers.
 
-When we measure the cosine similarity between the author vectors and the average of all author vectors we get the following histogram. This gives approximately a left-skewed normal distribution with the mean cosine similarity near .925. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the Foldamer Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
+![foldamer_transparent_3](https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/a9de15e1-467f-4af3-b1b4-f44549a7b407)
+
+This gives approximately a left-skewed normal distribution with the mean cosine similarity near .925. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the Foldamer Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
 
 <div align="center">
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
