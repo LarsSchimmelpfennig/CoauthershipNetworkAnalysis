@@ -49,4 +49,4 @@ It is very interesting that these different curves would share such similar feat
 
 <li>Instead of generating these author vectors from the text in their publications I can instead train a new Word2Vec model with the authors of each paper directly. Authors that appear in the same papers will then have a higher cosine similarity. To attempt this, I would need to address Author Name Disambiguation (AND) which is a complex problem as many authors dont publish under a consistent spelling and many share the same name.</li>
 
-<li>I can also use the text of all papers written by the authors in a network when creating these author vectors, however, this would also require work on AND.</li> 
+<li>I can also use the text of all papers written by the authors in a network (instead of those just within a specifc field) when creating these author vectors, however, this would also require work on AND.</li> 
