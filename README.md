@@ -1,4 +1,4 @@
-# Co-authership Network Analysis
+# Co-authorship Network Analysis
 
 A Co-authorship network contains authors as nodes and collaboration on the same paper as edges. The analysis of these networks is often used to explore the development of a field and guide future collaboration. My project focuses on how authors specializing in different topics within a field are distributed in terms of collaboration. Do authors with the same interests collaborate the most? Is there polarization in the distribution of these authors?
 
