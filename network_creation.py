@@ -19,6 +19,23 @@ def sum_word_vectors(words):
         else:
             pass
     return curr_topic_vector 
+	
+def extract_largest_component(G):
+	connected_components = list(nx.connected_components(G))
+	largest_component = max(connected_components, key=len)
+	
+	edges_to_exclude = set()
+	nodes_to_exclude = set()
+	for edge in G.edges():
+		u, v = edge
+		if u not in largest_component or v not in largest_component:
+			nodes_to_exclude.add(u)
+			nodes_to_exclude.add(v)
+			edges_to_exclude.add(edge)
+	
+	G.remove_edges_from(edges_to_exclude)
+	G.remove_nodes_from(nodes_to_exclude)
+	return G
 
 
 def generate_network(topic):
@@ -75,8 +92,7 @@ def generate_network(topic):
                             G.add_edge(a1, a2, year=year)
                             d_edge_years[(a1, a2)] = int(year)
                             d_edge_years[(a2, a1)] = int(year)
-
-                                                  
+                                      
     avg_author_vector = 0
     for vector in d_author_vectors.values():
         avg_author_vector += vector
@@ -87,7 +103,6 @@ def generate_network(topic):
         sim_to_avg = cosine_similarity(d_author_vectors[author], avg_author_vector)
         d_sim_to_avg[author] = sim_to_avg
             
-
     nx.set_edge_attributes(G, d_edge_years, 'year')
     nx.set_node_attributes(G, d_sim_to_avg, 'value')
     G = extract_largest_component(G)
