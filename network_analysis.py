@@ -12,7 +12,7 @@ def modularity(G):
 
 def calculate_average_neighbor_difference(graph, temp_d_sim_score):
 	'''
-    Returns average score difference between all neighbors in a graph. 
+    Returns the average difference pof scores of all neighbors in a graph. 
 
             Parameters:
                     graph (Networkx Graph): Networkx Graph Object
