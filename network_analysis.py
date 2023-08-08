@@ -71,4 +71,4 @@ def network_stats_over_time(G, d_sim_to_avg):
               average_distance = calculate_average_neighbor_difference(temp_G, temp_d_sim_score)
               homophily = graph_average_homophily(G, neighbor_threshold=.01)
               modularity_score = modularity(temp_G)
-              writer.writerow([year,	GE, homophily, modularity_score, average_distance, stdev, len(temp_G.nodes()), len(temp_G.edges()), len(temp_G.edges())/len(temp_G.nodes())])
+              writer.writerow([year, homophily, modularity_score, average_distance, stdev, len(temp_G.nodes()), len(temp_G.edges()), len(temp_G.edges())/len(temp_G.nodes())])
