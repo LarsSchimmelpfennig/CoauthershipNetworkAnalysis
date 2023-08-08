@@ -8,9 +8,11 @@ import networkx as nx
 model = Word2Vec.load("PATH_TO_MODEL"))
 
 def cosine_similarity(vector1, vector2):
+	"Returns the cosine similairty between vector1 and vector2."
 	return float(np.dot(vector1, vector2)/(np.linalg.norm(vector1)* np.linalg.norm(vector2)))
 
 def sum_word_vectors(words):
+	"Takes a str and combines all word vectors found into one."
     sub_words = utils.simple_preprocess(words)
     curr_topic_vector = 0
     for sub_word in sub_words:
@@ -21,6 +23,7 @@ def sum_word_vectors(words):
     return curr_topic_vector 
 	
 def extract_largest_component(G):
+	"Removes nodes and edges that arent connected to the largest connected component of the graph." 
 	connected_components = list(nx.connected_components(G))
 	largest_component = max(connected_components, key=len)
 	
@@ -39,6 +42,7 @@ def extract_largest_component(G):
 
 
 def generate_network(topic):
+	"Takes a topic str belonging to files extracted from WOS and creates a co-authorship network and dict of scores for each node." 
     files = os.listdir('PATH_TO_FILES')
     d_author_vectors = {}
     G = nx.Graph()
