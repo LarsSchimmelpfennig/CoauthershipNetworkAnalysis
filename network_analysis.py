@@ -42,6 +42,8 @@ def graph_average_homophily(G, neighbor_threshold=.1):
   return sum(homophily_scores.values())/len(homophily_scores.values())
 
 def network_stats_over_time(G, d_sim_to_avg):
+      temp_G = G.copy()
+      temp_d_sim_score = d_sim_to_avg.copy()
       with open(os.path.join('PATH_TO_NEW_CSV'),'w') as temp_csv:
           writer=csv.writer(temp_csv, delimiter=',',lineterminator='\n')
           writer.writerow(['year', 'homophily', 'modularity', 'average distance from neighbors', 'stdev of word vectors', 'num_nodes', 'num_edges', 'density'])
