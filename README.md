@@ -8,7 +8,7 @@ I can combine word vectors for all the text in the title and keywords for each p
 
 ![foldamer_transparent_4](https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/3a5ba29c-bbb3-4564-b103-346bb7c3a9bb)
 
-This gives approximately a left-skewed normal distribution with the mean cosine similarity of .931. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the Foldamer Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
+This gives approximately a left-skewed normal distribution with the mean cosine similarity of .931. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the foldamers Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
 
 <div align="center">
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
@@ -27,7 +27,7 @@ To measure the distance between these two curves they are first normalized so al
 | Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
 |:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
 | Spliceosome                       | .135                                | .969                  | .001                               |
-| Foldamer                          | .848                                | .1266                 | .001                               |
+| Foldamers                          | .848                                | .1266                 | .001                               |
 | Amelanotic Melanoma               | .001                                | .001                  | .028                               |
 | Co-authorship Network Analysis    | .555                                | .124                  | .905                               |
 
@@ -38,7 +38,7 @@ With alpha=.05 there are some significant differences between these two sets of 
 | Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
 |:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
 | Spliceosome                       | .001                                | .965                  | .001                               |
-| Foldamer                          | .003                                | .001                  | .001                               |
+| Foldamers                          | .003                                | .001                  | .001                               |
 | Amelanotic Melanoma               | .001                                | .001                  | .075                               |
 | Co-authorship Network Analysis    | .019                                | .296                  | .992                               |
 
