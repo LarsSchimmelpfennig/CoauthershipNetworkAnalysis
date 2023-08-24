@@ -14,37 +14,49 @@ This gives approximately a left-skewed normal distribution with the mean cosine 
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
 </div>
 
-For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average difference between neighboring author vectors. This is computed using the value described in the histogram and will help tell us if authors with similar interests are working together. Lastly I have included homophily which measures the proportion of neighboring nodes with a score within some threshold. This is a metric for network polarization where high homophily values represent a higher degree of polarization. I have chosen to use the standard deviation of scores/2 as a threshold.
+For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average cosine similarity between neighboring author vectors. Lastly I have included homophily which measures the proportion of neighboring nodes with a cosine similairty above some threshold. I set this threshold to be one minus half the standard deviation of author vectors. This is a metric for network polarization where high homophily values represent a higher degree of polarization.
 
 <div align="center">
   <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/7d562964-7b32-47cd-94c9-6efe17c76035" alt="Image" width="60%" />
 </div>
 
-To measure the distance between these two curves they are first normalized so all values fall from 0-1. Next, Dynamic Time Warping (DTW) and Euclidean distances are recorded for each pair of curves. A permutation test with 10k iterations is used to quantify how likely the observed distance between curves is after combining and shuffling all values. From this I was able to measure a significance level between each curve. 
+To measure the significance of association between curves I can perform a linear regression using the SciPy stats module.
 
-## Euclidean Distance Permutation Test P-values
+<div align="center">
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/6dc325f7-2eb0-4b7c-91c9-a2514deac967" alt="Image" width="60%" />
+</div>
 
-| Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
-|:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
-| Spliceosome                       | .135                                | .969                  | .001                               |
-| Foldamers                          | .848                                | .1266                 | .001                               |
-| Amelanotic Melanoma               | .001                                | .001                  | .028                               |
-| Co-authorship Network Analysis    | .555                                | .124                  | .905                               |
+## Regression results 
 
-With alpha=.05 there are some significant differences between these two sets of p-values. DTW seems to be more likely to incorrectly reject the null hypothesis that the observed distance between the curves is expected from randomness.
+### Amelanotic Melanoma
 
-## DTW Distance Permutation Test P-values
+| Metrics                                      | Slope | R-Squared | P-Value |
+|:--------------------------------------------:|:-----:|:---------:|:-------:|
+| modularity, cosine similarity of neighbors  | -0.033 | 0.857    | 9.61e-8  |
+| modularity, homophily                       | -0.297 | 0.242    | 0.045    |
+| homophily, cosine similarity of neighbors   | 11.44  | 0.463    | 0.002    |
 
-| Literature Field                  | Modularity, Avg. Neighbors Difference | Modularity, Homophily | Avg. Neighbors Difference, Homophily |
-|:---------------------------------:|:-----------------------------------:|:---------------------:|:----------------------------------:|
-| Spliceosome                       | .001                                | .965                  | .001                               |
-| Foldamers                          | .003                                | .001                  | .001                               |
-| Amelanotic Melanoma               | .001                                | .001                  | .075                               |
-| Co-authorship Network Analysis    | .019                                | .296                  | .992                               |
+### Foldamers
+
+| Metrics                                      | Slope | R-Squared | P-Value |
+|:--------------------------------------------:|:-----:|:---------:|:-------:|
+| modularity, cosine similarity of neighbors  | -0.008 | 0.103    | 0.125    |
+| modularity, homophily                       | 0.393  | 0.939    | 7.42e-15 |
+| homophily, cosine similarity of neighbors   | -3.34  | 0.043    | 0.327    |
+
+### Spliceosome
+
+| Metrics                                      | Slope | R-Squared | P-Value |
+|:--------------------------------------------:|:-----:|:---------:|:-------:|
+| modularity, cosine similarity of neighbors  | -0.031 | 0.161    | 0.052    |
+| modularity, homophily                       | -0.399  | 0.121   | 0.095    |
+| homophily, cosine similarity of neighbors   | -3.24  | 0.05     | 0.293    |
+
+
 
 # Conclusion
 
-It is very interesting that these different curves would share such similar features for some fields over time and not for others. For the second column, modularity and avg distance, as clusters of authors become more interconnected the distance between their author vectors increases. A significant p-value seems to suggest that dense clusters of authors are formed that are diversified. Collaborators may bring unique contributions without large overlap.
+It is very interesting that these different curves would share such similar features for some fields over time and not for others. For the first metric, modularity and cosine similarity of neighbors, as clusters of authors become more interconnected the distance between their author vectors increases. A significant p-value seems to suggest that dense clusters of authors are formed that are diversified. Collaborators may bring unique contributions without large overlap.
 
 
 # Future Work
