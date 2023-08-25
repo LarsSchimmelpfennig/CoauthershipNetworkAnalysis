@@ -17,7 +17,7 @@ This gives approximately a left-skewed normal distribution with the mean cosine 
 For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average cosine similarity between neighboring author vectors. Lastly I have included homophily which measures the proportion of neighboring nodes with a cosine similairty above some threshold. I set this threshold to be one minus half the standard deviation of author vectors. This is a metric for network polarization where high homophily values represent a higher degree of polarization.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/7d562964-7b32-47cd-94c9-6efe17c76035" alt="Image" width="60%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/8a60bd40-a61f-498a-8fa6-f8d728ac92b0" alt="Image" width="60%" />
 </div>
 
 To measure the significance of association between curves I can perform a linear regression using the SciPy stats module.
