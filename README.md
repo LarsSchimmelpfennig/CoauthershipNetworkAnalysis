@@ -11,19 +11,20 @@ I can combine word vectors for all the text in the title and keywords for each p
 This gives approximately a left-skewed normal distribution with the mean cosine similarity of .931. This is to be expected as few authors will be significantly different from the average author vector. This distribution was created from the foldamers Co-authorship network. Other fields of research will have varying means and standard deviations depending on how varied the topics researched are.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthershipNetworkAnalysis/assets/91089724/ee188d0f-1de4-42d1-b8ce-3b8e2540a289" alt="Image" width="60%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/b17e1c37-3525-47bf-9793-84a699c2afe5" alt="Image" width="80%" height="80%" />
 </div>
+
 
 For this analysis of these networks I will focus on the following metrics: Modularity is the proportion of edges from nodes in a cluster that connect to other nodes in the same cluster. Here clusters are assigned to maximize modularity. An increase in modularity represents an increase in edge density within a cluster. Next we will use the average cosine similarity between neighboring author vectors. Lastly I have included homophily which measures the proportion of neighboring nodes with a cosine similairty above some threshold. I set this threshold to be one minus half the standard deviation of author vectors. This is a metric for network polarization where high homophily values represent a higher degree of polarization.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/8a60bd40-a61f-498a-8fa6-f8d728ac92b0" alt="Image" width="60%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/0ace36af-c181-4fdc-8c90-8eaea9a7a1f3" alt="Image" width="80%" height="80%" />
 </div>
 
 To measure the significance of association between curves I can perform a linear regression using the SciPy stats module.
 
 <div align="center">
-  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/6dc325f7-2eb0-4b7c-91c9-a2514deac967" alt="Image" width="60%" />
+  <img src="https://github.com/LarsSchimmelpfennig/CoauthorshipNetworkAnalysis/assets/91089724/4bc4b777-43b8-4f32-af87-e8d73a8186f8" alt="Image" width="80%" height="80%" />
 </div>
 
 ## Regression results 
